@@ -1,8 +1,10 @@
 package eu.gitcode.songapp.app.di
 
+import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
 import eu.gitcode.songapp.BuildConfig
+import eu.gitcode.songapp.data.adapter.DateAdapter
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -28,10 +30,19 @@ class AppModule {
 
     @Singleton
     @Provides
+    fun provideMoshi(): Moshi {
+        return Moshi.Builder()
+            .add(DateAdapter())
+            .build()
+    }
+
+    @Singleton
+    @Provides
     fun provideRetrofit(
-        okHttpClient: OkHttpClient
+        okHttpClient: OkHttpClient,
+        moshi: Moshi
     ): Retrofit = Retrofit.Builder()
-        .addConverterFactory(MoshiConverterFactory.create())
+        .addConverterFactory(MoshiConverterFactory.create(moshi))
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .baseUrl(BASE_URL)
         .client(okHttpClient)

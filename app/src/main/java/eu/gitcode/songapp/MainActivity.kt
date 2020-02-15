@@ -1,8 +1,8 @@
 package eu.gitcode.songapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import eu.gitcode.songapp.ui.main.MainFragment
+import androidx.appcompat.app.AppCompatActivity
+import eu.gitcode.songapp.presentation.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
 

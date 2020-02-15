@@ -18,6 +18,7 @@ ext {
     def rx_kotlin_version = '2.4.0'
     def mockito_version = '3.1.0'
     def mockito_kotlin_version = '2.2.0'
+    def three_ten_abp_version = '1.2.2'
 
 
     libs = [
@@ -59,7 +60,10 @@ ext {
             // RxJava
             "io.reactivex.rxjava2:rxjava:$rx_java_version",
             "io.reactivex.rxjava2:rxkotlin:$rx_kotlin_version",
-            "io.reactivex.rxjava2:rxandroid:$rx_android_version"
+            "io.reactivex.rxjava2:rxandroid:$rx_android_version",
+
+            // ThreeTenABP
+            "com.jakewharton.threetenabp:threetenabp:$three_ten_abp_version"
     ]
 
     proc = [

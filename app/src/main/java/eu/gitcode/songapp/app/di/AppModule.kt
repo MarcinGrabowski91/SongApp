@@ -1,4 +1,4 @@
-package eu.gitcode.songapp.di
+package eu.gitcode.songapp.app.di
 
 import dagger.Module
 import dagger.Provides

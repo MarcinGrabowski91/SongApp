@@ -1,4 +1,4 @@
-package eu.gitcode.songapp.ui.main
+package eu.gitcode.songs.presentation.main
 
 import androidx.lifecycle.ViewModel
 

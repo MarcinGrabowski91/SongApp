@@ -9,5 +9,5 @@ data class SongsRest(
     @Json(name = "resultCount")
     val resultCount: Int,
     @Json(name = "results")
-    val songRests: List<SongRest>
+    val songsRests: List<SongRest>
 )

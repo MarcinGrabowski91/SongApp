@@ -15,10 +15,9 @@ data class Song(
 
         fun fromRest(songsRest: SongsRest): List<Song> {
             val songsList = mutableListOf<Song>()
-            songsRest.songRests
-                .asSequence()
-                .iterator()
-                .forEach { songRest -> songsList.add(fromRest(songRest)) }
+            for (songRest in songsRest.songsRests) {
+                songsList.add(fromRest(songRest))
+            }
             return songsList
         }
     }

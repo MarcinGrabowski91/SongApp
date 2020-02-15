@@ -11,8 +11,27 @@ android {
 }
 
 dependencies {
+    implementation project(":core")
+    implementation libs.kotlin
+    implementation libs.androidKtx
+    implementation libs.appCompat
+    implementation libs.material
+    implementation libs.constraintLayout
+    implementation libs.fragmentKtx
+    implementation libs.lifecycleExtensions
+    implementation libs.lifecycleLivedataKtx
+    implementation libs.lifecycleViewModelKtx
+    implementation libs.dagger
+    implementation libs.daggerAndroid
+    implementation libs.daggerAndroidSupport
+    implementation libs.timber
+    implementation libs.rxJava2
+    implementation libs.rxKotlin
+    implementation libs.rxAndroid
+    implementation libs.threeTenABP
+    kapt proc.dagger
+    kapt proc.daggerAndroid
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation libs
-    kapt proc
     testImplementation test
 }

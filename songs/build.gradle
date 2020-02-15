@@ -1,11 +1,32 @@
-apply plugin: 'com.android.library'
+apply plugin: 'com.android.dynamic-feature'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply from: '../buildconfig/app_config.gradle'
 
 dependencies {
-    implementation libs
-    kapt proc
+    implementation project(":app")
+
+    implementation libs.kotlin
+    implementation libs.androidKtx
+    implementation libs.appCompat
+    implementation libs.material
+    implementation libs.constraintLayout
+    implementation libs.fragmentKtx
+    implementation libs.lifecycleExtensions
+    implementation libs.lifecycleLivedataKtx
+    implementation libs.lifecycleViewModelKtx
+    implementation libs.dagger
+    implementation libs.daggerAndroid
+    implementation libs.daggerAndroidSupport
+    implementation libs.timber
+    implementation libs.rxJava2
+    implementation libs.rxKotlin
+    implementation libs.rxAndroid
+    implementation libs.threeTenABP
+    implementation libs.retrofit
+    kapt proc.dagger
+    kapt proc.daggerAndroid
+
     testImplementation test
 }

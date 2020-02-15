@@ -1,18 +1,47 @@
 package eu.gitcode.songapp.app
 
-import dagger.android.AndroidInjector
-import dagger.android.DaggerApplication
+import android.app.Application
+import android.content.Context
+import eu.gitcode.core.di.ContextModule
+import eu.gitcode.core.di.CoreComponent
+import eu.gitcode.core.di.DaggerCoreComponent
 import eu.gitcode.songapp.app.di.DaggerAppComponent
 import io.reactivex.plugins.RxJavaPlugins
 
-class App : DaggerApplication() {
+class App : Application() {
 
-    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        return DaggerAppComponent.factory().create(this)
-    }
+    lateinit var coreComponent: CoreComponent
 
     override fun onCreate() {
         super.onCreate()
+        initDagger()
         RxJavaPlugins.setErrorHandler(RxJavaErrorHandler())
+    }
+
+    private fun initDagger() {
+        initCoreComponent()
+        initAppComponent()
+    }
+
+    private fun initAppComponent() {
+        DaggerAppComponent
+            .builder()
+            .coreComponent(coreComponent)
+            .build()
+            .inject(this)
+    }
+
+    private fun initCoreComponent() {
+        coreComponent = DaggerCoreComponent
+            .builder()
+            .contextModule(ContextModule(this))
+            .build()
+    }
+
+    companion object {
+
+        @JvmStatic
+        fun coreComponent(context: Context) =
+            (context.applicationContext as? App)?.coreComponent
     }
 }

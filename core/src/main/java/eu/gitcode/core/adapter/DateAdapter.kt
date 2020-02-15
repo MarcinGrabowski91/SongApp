@@ -1,4 +1,4 @@
-package eu.gitcode.songapp.data.adapter
+package eu.gitcode.core.adapter
 
 import com.squareup.moshi.FromJson
 import com.squareup.moshi.ToJson

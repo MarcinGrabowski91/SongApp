@@ -1,4 +1,4 @@
-package eu.gitcode.songs.data
+package eu.gitcode.songs.data.di
 
 import dagger.Module
 import dagger.Provides

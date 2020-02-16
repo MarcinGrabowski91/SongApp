@@ -6,6 +6,7 @@ apply from: '../buildconfig/app_config.gradle'
 
 dependencies {
     implementation project(":app")
+    implementation project(":core")
 
     implementation libs.kotlin
     implementation libs.androidKtx
@@ -25,8 +26,10 @@ dependencies {
     implementation libs.rxAndroid
     implementation libs.threeTenABP
     implementation libs.retrofit
+    implementation libs.moshi
     kapt proc.dagger
     kapt proc.daggerAndroid
+    kapt proc.moshi
 
     testImplementation test
 }

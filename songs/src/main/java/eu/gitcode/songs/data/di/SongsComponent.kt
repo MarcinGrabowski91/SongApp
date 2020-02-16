@@ -1,15 +1,16 @@
 package eu.gitcode.songs.data.di
 
 import dagger.Component
+import eu.gitcode.core.di.CoreComponent
+import eu.gitcode.core.di.scope.FeatureScope
 import eu.gitcode.songs.domain.controller.SongsController
-import javax.inject.Singleton
 
 @Component(
     modules = [
         SongsDataModule::class
-    ]
+    ], dependencies = [CoreComponent::class]
 )
-@Singleton
+@FeatureScope
 interface SongsComponent {
     fun getSongsController(): SongsController
 }

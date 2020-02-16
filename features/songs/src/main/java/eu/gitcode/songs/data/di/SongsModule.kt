@@ -11,7 +11,7 @@ import eu.gitcode.songs.domain.controller.SongsController
 import retrofit2.Retrofit
 
 @Module
-class SongsDataModule {
+class SongsModule {
 
     @FeatureScope
     @Provides

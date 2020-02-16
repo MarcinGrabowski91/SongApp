@@ -5,6 +5,7 @@ ext {
     def junit_version = '4.13'
     def lifecycle_version = '2.2.0'
     def live_data_version = '2.2.0'
+    def nagivation_version = "2.2.1"
     def material_version = '1.2.0-alpha04'
     def retrofit_version = '2.7.1'
     def moshi_codegen_version = '1.9.2'
@@ -43,7 +44,9 @@ ext {
             rxJava2               : "io.reactivex.rxjava2:rxjava:$rx_java_version",
             rxKotlin              : "io.reactivex.rxjava2:rxkotlin:$rx_kotlin_version",
             rxAndroid             : "io.reactivex.rxjava2:rxandroid:$rx_android_version",
-            threeTenABP           :  "com.jakewharton.threetenabp:threetenabp:$three_ten_abp_version"
+            threeTenABP           : "com.jakewharton.threetenabp:threetenabp:$three_ten_abp_version",
+            navigationFragmentKtx : "androidx.navigation:navigation-fragment-ktx:$nagivation_version",
+            navigationUiKtx       : "androidx.navigation:navigation-ui-ktx:$nagivation_version"
     ]
 
     proc = [

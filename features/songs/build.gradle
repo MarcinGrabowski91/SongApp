@@ -2,7 +2,7 @@ apply plugin: 'com.android.dynamic-feature'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-apply from: '../buildconfig/app_config.gradle'
+apply from: '../../buildconfig/app_config.gradle'
 
 dependencies {
     implementation project(":app")

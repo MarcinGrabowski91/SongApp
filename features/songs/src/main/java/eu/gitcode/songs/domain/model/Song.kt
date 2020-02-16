@@ -7,7 +7,7 @@ import eu.gitcode.songs.data.model.SongsRest
 data class Song(
     val title: String,
     val artist: String,
-    val releaseYear: Int
+    val releaseYear: Int?
 ) {
     companion object {
 
@@ -22,11 +22,15 @@ data class Song(
         fun fromLocalJson(songsLocal: List<SongLocal>): List<Song> {
             val songsList = mutableListOf<Song>()
             for (songLocal in songsLocal) {
+                var releaseYear: Int? = null
+                if (songLocal.releaseYear != "") {
+                    releaseYear = songLocal.releaseYear.toIntOrNull()
+                }
                 songsList.add(
                     Song(
                         songLocal.songClean,
                         songLocal.artistClean,
-                        songLocal.releaseYear
+                        releaseYear
                     )
                 )
             }
@@ -37,7 +41,7 @@ data class Song(
             return Song(
                 songRest.trackName,
                 songRest.artistName,
-                songRest.releaseDate.year
+                songRest.releaseDate?.year
             )
         }
     }

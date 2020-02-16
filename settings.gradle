@@ -1,4 +1,4 @@
 rootProject.name='SongApp'
 include ':app'
-include ':songs'
 include ':core'
+include ':features:songs'

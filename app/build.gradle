@@ -9,7 +9,7 @@ android {
         applicationId "eu.gitcode.songapp"
     }
 
-    android.dynamicFeatures = [":songs"]
+    android.dynamicFeatures = [":features:songs"]
 }
 
 dependencies {
@@ -31,6 +31,9 @@ dependencies {
     implementation libs.rxKotlin
     implementation libs.rxAndroid
     implementation libs.threeTenABP
+    implementation libs.navigationFragmentKtx
+    implementation libs.navigationUiKtx
+
     kapt proc.dagger
     kapt proc.daggerAndroid
 

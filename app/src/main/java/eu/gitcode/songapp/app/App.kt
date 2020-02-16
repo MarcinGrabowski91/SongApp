@@ -7,6 +7,7 @@ import eu.gitcode.core.di.CoreComponent
 import eu.gitcode.core.di.DaggerCoreComponent
 import eu.gitcode.songapp.app.di.DaggerAppComponent
 import io.reactivex.plugins.RxJavaPlugins
+import timber.log.Timber
 
 class App : Application() {
 
@@ -16,6 +17,7 @@ class App : Application() {
         super.onCreate()
         initDagger()
         RxJavaPlugins.setErrorHandler(RxJavaErrorHandler())
+        Timber.plant(Timber.DebugTree())
     }
 
     private fun initDagger() {

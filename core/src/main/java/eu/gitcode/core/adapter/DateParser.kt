@@ -6,7 +6,7 @@ import org.threeten.bp.LocalDate
 import org.threeten.bp.format.DateTimeFormatter
 
 
-class DateAdapter {
+class DateParser {
     @FromJson
     fun fromJson(value: String): LocalDate {
         return FORMATTER.parse(value, LocalDate.FROM)
@@ -18,6 +18,6 @@ class DateAdapter {
     }
 
     companion object {
-        private val FORMATTER = DateTimeFormatter.ISO_LOCAL_DATE_TIME
+        private val FORMATTER = DateTimeFormatter.ISO_OFFSET_DATE_TIME
     }
 }

@@ -17,7 +17,7 @@ data class SongLocal(
     @Json(name = "PlayCount")
     val playCount: Int,
     @Json(name = "Release Year")
-    val releaseYear: Int,
+    val releaseYear: String,
     @Json(name = "Song Clean")
     val songClean: String,
     @Json(name = "Year?")

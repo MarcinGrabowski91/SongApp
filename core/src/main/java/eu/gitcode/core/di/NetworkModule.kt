@@ -3,7 +3,6 @@ package eu.gitcode.core.di
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
-import eu.gitcode.core.adapter.DateAdapter
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -45,14 +44,6 @@ class NetworkModule {
     fun provideHttpLoggingInterceptor():
             HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
-    }
-
-    @Singleton
-    @Provides
-    fun provideMoshi(): Moshi {
-        return Moshi.Builder()
-            .add(DateAdapter())
-            .build()
     }
 
     companion object {

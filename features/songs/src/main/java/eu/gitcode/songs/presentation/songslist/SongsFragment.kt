@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.DividerItemDecoration.VERTICAL
 import eu.gitcode.songapp.app.App
 import eu.gitcode.songapp.extension.visible
 import eu.gitcode.songs.databinding.SongsFragmentBinding
@@ -71,6 +73,12 @@ class SongsFragment : Fragment() {
 
     private fun setupViewHolder() {
         binding.songsRecyclerViews.adapter = MySongRecyclerViewAdapter()
+        binding.songsRecyclerViews.addItemDecoration(
+            DividerItemDecoration(
+                requireContext(),
+                VERTICAL
+            )
+        )
         adapter = binding.songsRecyclerViews.adapter as MySongRecyclerViewAdapter
     }
 

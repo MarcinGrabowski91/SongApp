@@ -39,6 +39,7 @@
         android:id="@+id/songsRecyclerViews"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:scrollbars="vertical"
         android:visibility="gone"
         app:layoutManager="LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"

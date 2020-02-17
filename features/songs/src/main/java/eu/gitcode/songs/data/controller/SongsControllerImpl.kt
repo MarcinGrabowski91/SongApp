@@ -51,7 +51,10 @@ class SongsControllerImpl
     }
 
     private fun getSongsFromAllSources(): Single<List<Song>> {
-        return Singles.zip(getSongsListFromNetwork(), getSongsListFromLocalJson())
+        return Singles.zip(
+            getSongsListFromNetwork().onErrorReturnItem(listOf()),
+            getSongsListFromLocalJson()
+        )
             .map { pair -> pair.first + pair.second }
     }
 

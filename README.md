@@ -1,5 +1,5 @@
 # SongApp - Android architecture showcase 
-(REQUIRES ANDROID 3.6+)
+(ANDROID 3.6+ REQUIRED)
 
 Sample project for modern tech stack showcase. It bases strongly on modularization and unit tests coverage.
 - Kotlin

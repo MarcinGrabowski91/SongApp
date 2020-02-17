@@ -7,16 +7,16 @@ import dagger.Module
 import dagger.multibindings.IntoMap
 import eu.gitcode.songapp.app.di.ViewModelFactory
 import eu.gitcode.songapp.app.di.ViewModelKey
-import eu.gitcode.songs.presentation.songslist.SongsListViewModel
+import eu.gitcode.songs.presentation.songslist.SongsViewModel
 
 @Module
 abstract class SongsViewModelModule {
 
     @Binds
-    abstract fun bindViewModelFactory(viewModelFactory: ViewModelFactory): ViewModelProvider.Factory;
+    abstract fun bindViewModelFactory(viewModelFactory: ViewModelFactory): ViewModelProvider.Factory
 
     @Binds
     @IntoMap
-    @ViewModelKey(SongsListViewModel::class)
-    abstract fun bindSongsListViewModel(viewModel: SongsListViewModel): ViewModel
+    @ViewModelKey(SongsViewModel::class)
+    abstract fun bindSongsListViewModel(viewModel: SongsViewModel): ViewModel
 }

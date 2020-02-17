@@ -8,7 +8,7 @@ import retrofit2.http.Query
 interface SongsApi {
     @POST("search")
     fun getSongs(
-        @Query("term") term: String = "a", @Query("limit") page: Int = DEFAULT_PAGE_SIZE
+        @Query("term") term: String = "James", @Query("limit") page: Int = DEFAULT_PAGE_SIZE
     ): Single<SongsRest>
 
     companion object {

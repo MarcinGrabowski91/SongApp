@@ -4,6 +4,6 @@
     app:startDestination="@id/song_list_fragment">
     <fragment
         android:id="@+id/song_list_fragment"
-        android:name="eu.gitcode.songs.presentation.songslist.SongsListFragment"
-        android:label="SongsListFragment"></fragment>
+        android:name="eu.gitcode.songs.presentation.songslist.SongsFragment"
+        android:label="SongsListFragment" />
 </navigation>

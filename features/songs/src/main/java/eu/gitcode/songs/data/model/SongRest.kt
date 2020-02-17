@@ -8,7 +8,7 @@ import org.threeten.bp.LocalDate
 @JsonClass(generateAdapter = true)
 data class SongRest(
     @Json(name = "artistId")
-    val artistId: Int,
+    val artistId: Int?,
     @Json(name = "artistName")
     val artistName: String,
     @Json(name = "artistViewUrl")

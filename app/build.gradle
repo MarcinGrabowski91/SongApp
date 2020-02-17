@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: "com.github.ben-manes.versions"
 apply from: '../buildconfig/app_config.gradle'
 
 android {
@@ -10,10 +11,15 @@ android {
     }
 
     android.dynamicFeatures = [":features:songs"]
+
+    viewBinding {
+        enabled = true
+    }
 }
 
 dependencies {
     implementation project(":core")
+
     implementation libs.kotlin
     implementation libs.androidKtx
     implementation libs.appCompat
@@ -37,6 +43,5 @@ dependencies {
     kapt proc.dagger
     kapt proc.daggerAndroid
 
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation test
 }

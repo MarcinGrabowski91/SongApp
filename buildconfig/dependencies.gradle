@@ -14,10 +14,10 @@ ext {
     def okhttp_version = '4.3.1'
     def dagger_version = '2.26'
     def fragment_version = '1.2.1'
-    def rx_java_version = '2.2.15'
+    def rx_java_version = '2.2.17'
     def rx_android_version = '2.1.1'
     def rx_kotlin_version = '2.4.0'
-    def mockito_version = '3.1.0'
+    def mockito_version = '3.2.4'
     def mockito_kotlin_version = '2.2.0'
     def three_ten_abp_version = '1.2.2'
 
@@ -46,7 +46,8 @@ ext {
             rxAndroid             : "io.reactivex.rxjava2:rxandroid:$rx_android_version",
             threeTenABP           : "com.jakewharton.threetenabp:threetenabp:$three_ten_abp_version",
             navigationFragmentKtx : "androidx.navigation:navigation-fragment-ktx:$nagivation_version",
-            navigationUiKtx       : "androidx.navigation:navigation-ui-ktx:$nagivation_version"
+            navigationUiKtx       : "androidx.navigation:navigation-ui-ktx:$nagivation_version",
+            recyclerView          : "androidx.recyclerview:recyclerview:1.1.0"
     ]
 
     proc = [

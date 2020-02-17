@@ -10,6 +10,7 @@ import eu.gitcode.songs.domain.controller.DataSource
 import eu.gitcode.songs.domain.controller.SongsController
 import eu.gitcode.songs.domain.model.Song
 import io.reactivex.Single
+import io.reactivex.rxkotlin.Singles
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -50,7 +51,8 @@ class SongsControllerImpl
     }
 
     private fun getSongsFromAllSources(): Single<List<Song>> {
-        return Single.merge(getSongsListFromNetwork(), getSongsListFromLocalJson()).single(listOf())
+        return Singles.zip(getSongsListFromNetwork(), getSongsListFromLocalJson())
+            .map { pair -> pair.first + pair.second }
     }
 
     companion object {

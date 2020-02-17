@@ -13,16 +13,14 @@ import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
 import javax.inject.Inject
 
-class SongsListViewModel
+class SongsViewModel
 @Inject constructor(private val songsController: SongsController) : ViewModel() {
 
+    private val _songs: MutableLiveData<List<Song>> by lazy { MutableLiveData<List<Song>>() }
     private var songsDisposable: Disposable? = null
 
-    private val users: MutableLiveData<List<Song>> = MutableLiveData()
-
-    fun observeSongs(): LiveData<List<Song>> {
-        return users
-    }
+    val songs: LiveData<List<Song>>
+        get() = _songs
 
     fun getSongs(dataSource: DataSource) {
         songsDisposable?.dispose()
@@ -30,7 +28,7 @@ class SongsListViewModel
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(
-                onSuccess = { users.value = it },
+                onSuccess = { _songs.value = it },
                 onError = Timber::e
             )
     }

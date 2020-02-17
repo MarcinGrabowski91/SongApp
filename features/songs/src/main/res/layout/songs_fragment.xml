@@ -2,19 +2,48 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/songsFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="eu.gitcode.songapp.MainActivity">
 
-    <TextView
-        android:id="@+id/message"
+    <Button
+        android:id="@+id/loadFromFileBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MainFragment"
+        android:text="@string/file"
+        app:layout_constraintEnd_toStartOf="@+id/loadFromNetworkBtn"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/loadFromNetworkBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/network"
+        app:layout_constraintEnd_toEndOf="@+id/loadAllSourcesBtn"
+        app:layout_constraintStart_toEndOf="@id/loadFromFileBtn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/loadAllSourcesBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/all"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/loadFromNetworkBtn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/songsRecyclerViews"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/loadFromFileBtn"
+        tools:listitem="@layout/song_view_holder" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

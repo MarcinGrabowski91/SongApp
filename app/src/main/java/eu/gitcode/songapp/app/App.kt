@@ -5,6 +5,7 @@ import android.content.Context
 import eu.gitcode.core.di.ContextModule
 import eu.gitcode.core.di.CoreComponent
 import eu.gitcode.core.di.DaggerCoreComponent
+import eu.gitcode.songapp.BuildConfig
 import eu.gitcode.songapp.app.di.DaggerAppComponent
 import io.reactivex.plugins.RxJavaPlugins
 import timber.log.Timber
@@ -16,8 +17,8 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         initDagger()
+        initTimber()
         RxJavaPlugins.setErrorHandler(RxJavaErrorHandler())
-        Timber.plant(Timber.DebugTree())
     }
 
     private fun initDagger() {
@@ -38,6 +39,12 @@ class App : Application() {
             .builder()
             .contextModule(ContextModule(this))
             .build()
+    }
+
+    private fun initTimber() {
+        if (BuildConfig.DEBUG) {
+            Timber.plant(Timber.DebugTree())
+        }
     }
 
     companion object {

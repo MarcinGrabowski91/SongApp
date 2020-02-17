@@ -24,7 +24,7 @@ data class Song(
             for (songLocal in songsLocal) {
                 var releaseYear: Int? = null
                 if (songLocal.releaseYear != "") {
-                    releaseYear = songLocal.releaseYear.toIntOrNull()
+                    releaseYear = songLocal.releaseYear?.toIntOrNull()
                 }
                 songsList.add(
                     Song(

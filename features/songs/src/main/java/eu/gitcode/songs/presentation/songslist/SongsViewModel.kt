@@ -17,18 +17,37 @@ class SongsViewModel
 @Inject constructor(private val songsController: SongsController) : ViewModel() {
 
     private val _songs: MutableLiveData<List<Song>> by lazy { MutableLiveData<List<Song>>() }
+    private val _state: MutableLiveData<SongsViewState> by lazy {
+        MutableLiveData<SongsViewState>(
+            SongsViewState.Empty
+        )
+    }
     private var songsDisposable: Disposable? = null
 
     val songs: LiveData<List<Song>>
         get() = _songs
+
+    val state: LiveData<SongsViewState>
+        get() = _state
 
     fun getSongs(dataSource: DataSource) {
         songsDisposable?.dispose()
         songsDisposable = songsController.getSongsList(dataSource)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { _state.value = SongsViewState.Loading }
+            .doOnSuccess { songs ->
+                if (songs.isEmpty()) {
+                    _state.value = SongsViewState.Empty
+                } else {
+                    _state.value = SongsViewState.Listed
+                }
+            }
+            .doOnError { _state.value = SongsViewState.Error }
             .subscribeBy(
-                onSuccess = { _songs.value = it },
+                onSuccess = {
+                    _songs.value = it
+                },
                 onError = Timber::e
             )
     }

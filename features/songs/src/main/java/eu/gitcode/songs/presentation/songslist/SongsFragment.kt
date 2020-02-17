@@ -8,9 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import eu.gitcode.songapp.app.App
+import eu.gitcode.songapp.extension.visible
 import eu.gitcode.songs.databinding.SongsFragmentBinding
 import eu.gitcode.songs.domain.controller.DataSource
-import eu.gitcode.songs.domain.model.Song
 import eu.gitcode.songs.presentation.di.DaggerSongsComponent
 import javax.inject.Inject
 
@@ -43,12 +43,23 @@ class SongsFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this, viewModelFactory).get(SongsViewModel::class.java)
-        handleSongsObserver()
+        handleSongs()
+        handleStates()
     }
 
-    private fun handleSongsObserver() {
-        viewModel.songs.observe(viewLifecycleOwner, Observer<List<Song>> { songs ->
+    private fun handleSongs() {
+        viewModel.songs.observe(viewLifecycleOwner, Observer { songs ->
             adapter?.setData(songs)
+            binding.songsRecyclerViews.scrollToPosition(0)
+        })
+    }
+
+    private fun handleStates() {
+        viewModel.state.observe(viewLifecycleOwner, Observer { state ->
+            binding.emptyTxt.visible = state.isEmpty()
+            binding.songsRecyclerViews.visible = state.isListed()
+            binding.errorTxt.visible = state.isError()
+            binding.spinner.visible = state.isLoading()
         })
     }
 

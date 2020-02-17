@@ -9,17 +9,17 @@ data class SongLocal(
     @Json(name = "ARTIST CLEAN")
     val artistClean: String,
     @Json(name = "COMBINED")
-    val combined: String,
+    val combined: String?,
     @Json(name = "F*G")
-    val fG: Int,
+    val fG: Int?,
     @Json(name = "First?")
-    val first: Int,
+    val first: Int?,
     @Json(name = "PlayCount")
-    val playCount: Int,
+    val playCount: Int?,
     @Json(name = "Release Year")
-    val releaseYear: String,
+    val releaseYear: String?,
     @Json(name = "Song Clean")
     val songClean: String,
     @Json(name = "Year?")
-    val year: Int
+    val year: Int?
 )

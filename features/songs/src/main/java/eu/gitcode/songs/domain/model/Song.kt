@@ -19,7 +19,7 @@ data class Song(
             return songsList
         }
 
-        fun fromLocalJson(songsLocal: List<SongLocal>): List<Song> {
+        fun fromLocal(songsLocal: List<SongLocal>): List<Song> {
             val songsList = mutableListOf<Song>()
             for (songLocal in songsLocal) {
                 var releaseYear: Int? = null

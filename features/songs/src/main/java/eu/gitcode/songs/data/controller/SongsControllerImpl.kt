@@ -47,7 +47,7 @@ class SongsControllerImpl
 
         return fileController.getStringFromFile(SONGS_JSON_FILE_NAME)
             .map { adapter.fromJson(it) }
-            .map { Song.fromLocalJson(it) }
+            .map { Song.fromLocal(it) }
     }
 
     private fun getSongsFromAllSources(): Single<List<Song>> {

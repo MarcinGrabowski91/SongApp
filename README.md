@@ -1,4 +1,5 @@
-# SongApp - Android architecture showcase
+# SongApp - Android architecture showcase 
+(REQUIRES ANDROID 3.6+)
 
 Sample project for modern tech stack showcase. It bases strongly on modularization and unit tests coverage.
 - Kotlin
@@ -14,3 +15,4 @@ Sample project for modern tech stack showcase. It bases strongly on modularizati
 - ThreeTenABP
 - JUnit
 - Mockito
+

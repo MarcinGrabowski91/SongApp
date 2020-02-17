@@ -16,3 +16,4 @@ Sample project for modern tech stack showcase. It bases strongly on modularizati
 - JUnit
 - Mockito
 
+User can display songs info downloaded from different source - Network, JSON file or both of them.

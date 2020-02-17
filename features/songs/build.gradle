@@ -21,12 +21,9 @@ dependencies {
     implementation libs.material
     implementation libs.constraintLayout
     implementation libs.fragmentKtx
-    implementation libs.lifecycleExtensions
     implementation libs.lifecycleLivedataKtx
     implementation libs.lifecycleViewModelKtx
     implementation libs.dagger
-    implementation libs.daggerAndroid
-    implementation libs.daggerAndroidSupport
     implementation libs.timber
     implementation libs.rxJava2
     implementation libs.rxKotlin
@@ -36,7 +33,6 @@ dependencies {
     implementation libs.moshi
 
     kapt proc.dagger
-    kapt proc.daggerAndroid
     kapt proc.moshi
 
     testImplementation test
